@@ -40,7 +40,12 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
+    /* PERBAIKAN: 
+      - 'fixed inset-0 z-50': Membuat halaman ini menutupi seluruh layar (overlay),
+        sehingga padding sidebar dari layout.tsx dan background hitam tidak terlihat.
+      - 'bg-gray-50': Memberikan warna background terang yang konsisten.
+    */
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-50 p-4 text-black">
       <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md border border-gray-100">
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold text-blue-600">Uang Kas Digital</h1>
@@ -57,7 +62,8 @@ export default function LoginPage() {
 
         <form onSubmit={handleLogin} className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            {/* PERBAIKAN: text-gray-800 agar tulisan label terlihat jelas */}
+            <label className="block text-sm font-medium text-gray-800 mb-1">
               NIM
             </label>
             <div className="relative">
@@ -65,19 +71,21 @@ export default function LoginPage() {
                 className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
                 size={18}
               />
+              {/* PERBAIKAN: text-black agar inputan user terlihat (tidak putih) */}
               <input
                 type="text"
                 required
                 value={nim}
                 onChange={(e) => setNim(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all bg-white text-black placeholder-gray-400"
                 placeholder="Masukkan NIM"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            {/* PERBAIKAN: text-gray-800 agar tulisan label terlihat jelas */}
+            <label className="block text-sm font-medium text-gray-800 mb-1">
               Password
             </label>
             <div className="relative">
@@ -85,12 +93,13 @@ export default function LoginPage() {
                 className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
                 size={18}
               />
+              {/* PERBAIKAN: text-black agar inputan user terlihat (tidak putih) */}
               <input
                 type="password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all bg-white text-black placeholder-gray-400"
                 placeholder="Masukkan Password"
               />
             </div>
