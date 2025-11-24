@@ -26,6 +26,7 @@ export async function POST(request: Request) {
       id: data.id,
       nama: data.nama,
       role: data.role,
+      nim: data.nim,
     },
   });
 }
